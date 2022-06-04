@@ -51,7 +51,7 @@ class NaiveBayes:
     def calculate_naive_probability(self, x_i, class_name, attribute):
         mean = self.data_mean[class_name][attribute]
         variance = self.data_variance[class_name][attribute]
-        return (1 / variance) * np.exp(
+        return (1 / np.sqrt(variance)) * np.exp(
             -(1 / (2 * (variance ** 2))) * ((x_i - mean) ** 2)
         )
 
